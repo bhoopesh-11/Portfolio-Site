@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sudhanthiran's Portfolio</title>
+  <link rel="stylesheet" href="desktop_style.css" media="(min-width: 1023px)">
+  <link rel="stylesheet" href="mobile_style.css" media="(max-width: 1023px)">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Honk&display=swap" rel="stylesheet">
+  <style>
+    /* General Styles */
+    
+  </style>
+</head>
+<body>
+  <div class="custom-cursor"></div>
+  <!-- Background SVG Container - Now with correct class -->
+  <div class="background-container">
+    <svg class="bg-svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="darkGradient" x1="0%" y1="0%" x2="100%">
+          <stop offset="0%" style="stop-color:#000000"/>
+          <stop offset="50%" style="stop-color:#0a0a0a"/>
+          <stop offset="100%" style="stop-color:#000000"/>
+        </linearGradient>
+        
+        <filter id="enhancedGlow">
+          <feGaussianBlur stdDeviation="0.4" result="blur"/>
+          <feFlood flood-color="#4a9eff" flood-opacity="0.6"/>
+          <feComposite in2="blur" operator="in"/>
+          <feMerge>
+            <feMergeNode/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+        </filter>
+        
+        <linearGradient id="accentGlow" x1="0%" y1="0%" x2="100%">
+          <stop offset="0%" style="stop-color:#1e3c72">
+            <animate attributeName="stop-color" 
+                    values="#1e3c72; #2a5298; #1e3c72" 
+                    dur="5s" repeatCount="indefinite"/>
+          </stop>
+          <stop offset="100%" style="stop-color:#2a5298">
+            <animate attributeName="stop-color" 
+                    values="#2a5298; #1e3c72; #2a5298" 
+                    dur="5s" repeatCount="indefinite"/>
+          </stop>
+        </linearGradient>
+      </defs>
+
+      <!-- Background -->
+      <rect width="100" height="100" fill="#000000"/>
+      <rect width="100" height="100" fill="url(#darkGradient)" opacity="0.8"/>
+      
+      <!-- Interactive Grid Container -->
+      <g id="gridContainer"></g>
+      
+      <!-- Central Design -->
+      <g transform="translate(50,50) scale(0.1)">
+        <!-- Main orb -->
+        <circle cx="0" cy="0" r="100" 
+                fill="url(#accentGlow)" 
+                opacity="0.15">
+          <animate attributeName="r" 
+                  values="100;110;100" 
+                  dur="4s" 
+                  repeatCount="indefinite"/>
+        </circle>
+        
+        <!-- Orbital system -->
+        <g>
+          <animateTransform attributeName="transform"
+                          type="rotate"
+                          from="0 0 0"
+                          to="360 0 0"
+                          dur="25s"
+                          repeatCount="indefinite"/>
+          
+          <path d="M-250,-250 L-200,-200 L-250,-150 Z" 
+              fill="#4a9eff" 
+              opacity="0.4" 
+              filter="url(#enhancedGlow)"/>
+          <rect x="180" y="-200" width="60" height="60" 
+              transform="rotate(45 210 -170)"
+              fill="#4a9eff" 
+              opacity="0.4" 
+              filter="url(#enhancedGlow)"/>
+          <polygon points="0,250 60,300 -60,300" 
+                  fill="#4a9eff" 
+                  opacity="0.4" 
+                  filter="url(#enhancedGlow)"/>
+        </g>
+      </g>
+      
+      <!-- Flowing lines -->
+      <path d="M0 50 Q 33.33 16.67, 66.67 50 T 100 50" 
+          stroke="#4a9eff" 
+          fill="none" 
+          stroke-width="0.15"
+          opacity="0.4" 
+          filter="url(#enhancedGlow)">
+        <animate attributeName="d" 
+                values="M0 50 Q 33.33 16.67, 66.67 50 T 100 50;
+                        M0 50 Q 33.33 83.33, 66.67 50 T 100 50;
+                        M0 50 Q 33.33 16.67, 66.67 50 T 100 50"
+                dur="12s" 
+                repeatCount="indefinite"/>
+      </path>
+      
+      <!-- Accent particles -->
+      <g>
+        <circle cx="20" cy="20" r="0.15" fill="#ffffff">
+          <animate attributeName="opacity" 
+                  values="0;0.5;0" 
+                  dur="3s" 
+                  repeatCount="indefinite"/>
+        </circle>
+        <circle cx="80" cy="60" r="0.15" fill="#ffffff">
+          <animate attributeName="opacity" 
+                  values="0;0.5;0" 
+                  dur="2.5s" 
+                  repeatCount="indefinite"/>
+        </circle>
+        <circle cx="90" cy="20" r="0.15" fill="#ffffff">
+          <animate attributeName="opacity" 
+                  values="0;0.5;0" 
+                  dur="4s" 
+                  repeatCount="indefinite"/>
+        </circle>
+      </g>
+    </svg>
+  </div>
+
+  <!-- Navigation -->
+  <div class="hamburger-menu">
+    <div class="hamburger-line"></div>
+    <div class="hamburger-line"></div>
+    <div class="hamburger-line"></div>
+  </div>
+
+  <div class="nav-menu">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#work">Work</a>
+    <a href="#experience">Education & Experience</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+
+    <div class="container" id="home">
+      <div class="title-container">
+        <h1 class="matrix-title">SUDHANTHIRAN</h1>
+        <div class="profile-image">
+          <img src="/Assets/sudanthiranphoto-removebg-preview.png" alt="Profile Picture">
+        </div>
+        <p id="sub">AI&ML Engineer, FOSS Enthusiast</p>
+      </div>
+    </div>
+
+    <div class="about-section" id="about">
+      <h2>About Me</h2>
+      <p>Hello, I'm Sudhanthiran N. I'm a AI enthusiast proficient in Computer Vision, LLMs and build many Machine Learning and Deep Learning solutions for real-time projects with pytorch and huggingface. Currenty I'm a freelancer working with IEEE research papers. I'm actively looking for AI related full-time roles and also happy in working with freelance projects.
+      
+      <p>I have worked on AI-powered content creation, job-seeking platforms, automated presentation generation, and PDF processing using LLaMA2, LangChain, PyTorch, and Hugging Face. My research internship at NIT Trichy has strengthened my expertise in cutting-edge AI technologies.</p>
+      
+      <p>As the President of Odyssey Coding Club, I actively foster a tech community for AI enthusiasts. My goal is to leverage AI to create impactful solutions across various domains.</p>
+    </div>
+
+    <h1 class="projects-title">← Projects →</h1>
+
+    <div class="projects-section" id="work">
+      <div class="projects-nav-arrows">
+        <button class="nav-arrow left">←</button>
+        <button class="nav-arrow right">→</button>
+      </div>
+      <div class="projects-container">
+        <div class="project-card">
+          <img src="https://raw.githubusercontent.com/nsudhanthiran/AI-PPT-generation/main/static/images/bg1.png" alt="AI PPT Generation">
+          <h3>
+            <a href="https://github.com/nsudhanthiran/AI-PPT-generation" target="_blank">
+              1. AI-PPT-generation
+              <img src="/Assets/github-logo.png" alt="GitHub" class="github-icon">
+            </a>
+          </h3>
+          <p>PowerPoint automation using LLaMA2, featuring PDF conversion and Flask interface. Creates precise, well-formatted presentations through AI-driven prompts, streamlining the design process.</p>
+        </div>
+        <div class="project-card">
+          <img src="https://raw.githubusercontent.com/nsudhanthiran/AI-Based-Job-Search/main/static/1.jpg" alt="AI Job Search Platform">
+          <h3>
+            <a href="https://github.com/nsudhanthiran/AI-Based-Job-Search" target="_blank">
+              2. AI aided jobseeking
+              <img src=" /Assets/github-logo.png" alt="GitHub" class="github-icon">
+            </a>
+          </h3>
+          <p>One-shot platform parsing resumes and matching relevant jobs using PyPDF2, Langchain, and Huggingface Transformers. Features Django backend, Beautifulsoup webscraping, and Intel Devcloud deployment.</p>
+        </div>
+        <div class="project-card">
+          <img src="https://user-images.githubusercontent.com/67329471/230719378-3d40e4a8-4dbb-42d6-aa31-1d8077758ee2.png" alt="Project 3">
+          <h3>
+            <a href="https://github.com/thequantumquirk/habitat-hive" target="_blank">
+              3. Habit Hive
+              <img src=" /Assets/github-logo.png" alt="GitHub" class="github-icon">
+            </a>
+          </h3>
+          <p>Project Details: Habitat Hive is a project that's aimed to solve rental finding
+            problems. Habitat Hive uses a Habitability Index which ranks
+            properties based on the living well-being around the property.</p>
+        </div>
+        <div class="project-card">
+          <img src="https://raw.githubusercontent.com/nsudhanthiran/Simple_RAG_Gradio/refs/heads/main/demo/0.png" alt="Project 4">
+          <h3>
+            <a href="https://github.com/nsudhanthiran/project4" target="_blank">
+              4. Gradio PDF Processing
+              <img src=" /Assets/github-logo.png" alt="GitHub" class="github-icon">
+            </a>
+          </h3>
+          <p>Project Details: This project enables a conversational AI interface for processing
+            PDFs and answering user queries through retrieval-based
+            techniques powered by large language models (LLMs). </p>
+        </div>
+        <div class="project-card">
+          <img src="https://raw.githubusercontent.com/nsudhanthiran/Image_to_prompt/refs/heads/main/Pytorch/Samples/boat.png" alt="Project 5">
+          <h3>
+            <a href="https://github.com/nsudhanthiran/Image_to_prompt" target="_blank">
+              Project Title 5
+              <img src=" /Assets/github-logo.png" alt="GitHub" class="github-icon">
+            </a>
+          </h3>
+          <p>Project Details: A CNNandLSTMbasedmodeldevelopedusingPytorchtogenerate
+            descriptive prompts from images, inverting the Stable Diffusion
+            Image generation approach..</p>
+        </div>
+        
+      </div>
+    </div>
+    
+    <div class="experience-section" id="experience">
+        <h2 >Education & Experience</h2>
+        <div class="experience-container">
+            <div class="experience-item">
+                <h3>WORK EXPERIENCE</h3>
+                <h4>Research • Internship</h4>
+                <p class="experience-date">Jun 2023 - Present</p>
+                <p class="institution-name">National Institute Of Technology Trichy, Tiruchirappalli</p>
+
+                <p> Trained object detection models like YOLOv8 and ResNet50 for fish activity classification, hitting 98.7% accuracy.  
+<p> Curated, annotated, and preprocessed a dataset of 1000+ images, ensuring high-quality training data. </p> 
+<p> Fine-tuned LLMs (DistilBERT, Mistral-7B, Phi-2) on Reddit data to classify moral vs. immoral actions. </p>  
+<p>Explored multi-modal AI, integrating text and image-based models for better decision-making.</p>
+<p>Worked with vector databases & retrieval-based models, optimizing AI-driven responses.</p>
+            </div>
+            
+            <div class="experience-item">
+                <h3>EDUCATION</h3>
+                <h4>B.Tech, Artificial Intelligence And Datascience</h4>
+                <p class="experience-date">2021 - 2025</p>
+                <p class="institution-name">Saranathan College of Engineering</p>
+                <p>
+                  <p>Successfully coordinated a workshop on GenAI with Google Cloud</p>
+                  <p>Achieved Second place in Intel OneAPI Hackathon'23 </p>
+                  <p>Led the ODYSSEY coding club and oversaw the events</p>
+                  <p>Trained Juniors for participating in various inter college Hackathons and events</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="skills-section" id="skills">
+        <h2>Skills</h2>
+        <div class="skills-container">
+            <div class="skill-category">
+                <h3>Programming Languages</h3>
+                <div class="skill-list">
+                    <span class="skill-item">Python</span>
+                    <span class="skill-item">Java</span>
+                    <span class="skill-item">C++</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>AI & ML</h3>
+                <div class="skill-list">
+                    <span class="skill-item">PyTorch</span>
+                    <span class="skill-item">TensorFlow</span>
+                    <span class="skill-item">Scikit-learn</span>
+                    <span class="skill-item">LangChain</span>
+                    <span class="skill-item">Hugging Face</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Web Development</h3>
+                <div class="skill-list">
+                    <span class="skill-item">HTML5</span>
+                    <span class="skill-item">CSS3</span>
+                    <span class="skill-item">Django</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Tools & Technologies</h3>
+                <div class="skill-list">
+                    <span class="skill-item">Git</span>
+                    <span class="skill-item">AWS</span>
+                    <span class="skill-item">Linux</span>
+                    <span class="skill-item">VS Code</span>
+                    <span class="skill-item">Docker</span>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="contact-section" id="contact">
+        <h2>Contact</h2>
+        <div class="contact-container">
+            <form class="contact-form">
+                <div class="form-group">
+                    <input type="text" id="name" name="name" placeholder="Full Name" required>
+                </div>
+                
+                <div class="form-group">
+                    <input type="email" id="email" name="email" placeholder="Email Address" required>
+                </div>
+                
+                <div class="form-group">
+                    <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                </div>
+                
+                <div class="form-group">
+                    <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+                </div>
+                
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">  
+          <a href="mailto:sudhanthiran@gmail.com" class="footer-link">
+                <img src="https://img.icons8.com/?size=100&id=53435&format=png&color=000000" alt="Email icon">
+                Email
+            </a>
+            <a href="https://www.linkedin.com/in/sudhanthiran-n/" class="footer-link">
+                <img src="https://img.icons8.com/?size=100&id=8808&format=png&color=000000" alt="">
+                LinkedIn
+            </a>
+            <a href="https://www.instagram.com/sudhanthiran_santosh?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="footer-link">
+                <img src="https://img.icons8.com/?size=100&id=32309&format=png&color=000000" alt="">
+                Instagram
+            </a>
+            <a href="https://github.com/nsudhanthiran" class="footer-link">
+                <img src="https://img.icons8.com/?size=100&id=3tC9EQumUAuq&format=png&color=000000" alt="">
+                GitHub
+            </a>
+        </div>
+    </footer>
+
+    <div class="custom-cursor"></div>
+    <script src="script.js"></script>
+    <script>
+    const hamburger = document.querySelector('.hamburger-menu');
+    const navMenu = document.querySelector('.nav-menu');
+    const body = document.body;
+
+    // Toggle menu
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+        body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : 'auto';
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+            body.style.overflow = 'auto';
+        }
+    });
+
+    // Close menu when clicking links
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+            body.style.overflow = 'auto';
+        });
+    });
+</script>
+</body>
+</html>

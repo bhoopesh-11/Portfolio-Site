@@ -1,0 +1,945 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    cursor: none;
+    overflow-x: hidden;
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
+                url('https://images.unsplash.com/photo-1511512578047-dfb367046420') no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* Remove the gradient overlay */
+
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1; /* Change back to -1 from -2 */
+    pointer-events: none;
+    opacity: 0.7; /* Make SVG slightly transparent to blend with bg */
+}
+
+/* Rest of your existing styles */
+.nav-menu {
+    background-color: rgba(255, 255, 255, 0.13);
+    backdrop-filter: blur(10px);
+    border-radius: 28px;
+    padding: 20px 30px;
+    position: fixed;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+}
+
+.nav-menu a {
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    margin: 0 15px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav-menu a:hover {
+    color: #2d3748;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+h1 {
+    font-size: 6rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+h1, .side, .project-card h3 , h2 {
+    font-family: 'Honk', system-ui;
+}
+
+p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.side {
+    position: absolute;
+    top: 25px;
+    left: 30px;
+}
+
+
+.projects-section {
+    position: relative;
+    width: 100%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 20px 0;
+}
+
+.projects-container {
+    display: flex;
+    gap: 30px;
+    padding: 20px 50px;
+    min-width: max-content;
+}
+
+.project-card {
+    flex: 0 0 500px;
+    height: 300px;
+    background: rgba(255, 255, 255, 0.13);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+/* Hide scrollbar but keep functionality */
+.projects-section::-webkit-scrollbar {
+    display: none;
+}
+.project-card:first-child {
+    margin-left: 0; /* Remove the left margin from first card */
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+}
+
+.project-card img {
+    width: 100%;
+    height: 87px; /* Set to exactly 87px */
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.project-card h3 {
+    margin: 15px 0; /* Reduced margin */
+    font-size: 2.2rem; /* Increased to accommodate the new font */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.project-card h3 a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Reduced from 10px to bring logo closer */
+}
+
+.project-card h3 a:hover {
+    color: #4a9eff;
+}
+
+.project-card h3 a img.github-icon {
+    width: 55px !important; /* Make even smaller and ensure it overrides */
+    height: 55px !important;
+    opacity: 100;
+    transition: opacity 0.3s ease;
+    margin-top: 6px;
+    margin-left: 4px;
+}
+
+.project-card h3 a:hover img.github-icon {
+    opacity: 1;
+}
+
+.project-card p {
+    color: #cccccc;
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+.project-link {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: white;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.project-link:hover {
+    transform: translateX(5px);
+}
+
+/* Custom Cursor */
+.custom-cursor {
+    width: 50px;  /* increased from 20px */
+    height: 50px; /* increased from 20px */
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    background-image: url('/Assets/cursor.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+ 
+.contact-section {
+    width: 100%;
+    max-width: 1200px;
+    margin: 100px auto;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.contact-container {
+    background: rgba(255, 255, 255, 0.13);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px;
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.contact-left {
+    flex: 1;
+}
+
+.contact-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-image {
+    width: 600px;
+    height: 600px;
+    border-radius: 20px;
+    opacity: 0.9;
+}
+
+
+.contact-form {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.form-group input,
+.form-group textarea {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.contact-container {
+    max-width: 1400px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    position: relative;
+    z-index: 2;
+    color: rgba(255, 255, 255, 0.13);;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding: 2rem 0;
+}
+
+.text-content {
+    margin-bottom: 4rem;
+}
+
+.contact-info h2 {
+    font-size: 4rem;
+    font-weight: bold;
+    color: white;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+}
+
+.contact-info .subtitle {
+    font-size: 1.1rem;
+    color: #4a9eff;
+    line-height: 1.6;
+}
+
+.contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.email-link {
+    font-size: 1.1rem;
+    color: white;
+    text-decoration: none;
+    font-family: monospace;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    width: fit-content;
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.social-link {
+    color: #888;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.social-link:hover {
+    color: white;
+}
+
+/* Right Side Styles */
+.contact-form-container {
+    width: 100%;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0rem;
+    width: 100%;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    background: rgba(255, 255, 255, 0.275);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 1rem;
+    border-color: black;
+    border-width: 10px;
+}
+
+.form-group input {
+    height: 3.5rem;
+}
+
+.form-group textarea {
+    min-height: 200px;
+    resize: vertical;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #ffffff;
+
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.276);
+}
+
+button {
+    width: 100%;
+    background: #2255dd;
+    color: white;
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 0.5rem;
+}
+
+button:hover {
+    background: #2b62ff;
+}
+
+/* Footer Styles */
+.footer {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.13);
+    backdrop-filter: blur(10px);
+    padding: 30px 0;
+    margin-top: 100px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.footer-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: #4a9eff;
+}
+
+.footer-link img {
+    width: 24px;
+    height: 24px;
+    opacity: 0.8;
+}
+
+
+#bg-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+#bg-container svg {
+    width: 100%;
+    height: 100%;
+}
+
+.grid-line {
+    transition: d 0.15s ease-out;
+}
+
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.scroll-buttons-container {
+    position: absolute;
+    top: -60px; /* Position above the container */
+    right: 50px;
+    display: flex;
+    gap: 10px;
+    z-index: 1000;
+}
+
+.scroll-button {
+    position: relative; /* Changed from fixed */
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.13);
+    backdrop-filter: blur(10px);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.scroll-right, .scroll-left {
+    top: unset;
+}
+
+ 
+.title-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0; /* Removed gap */
+    padding: 0;
+    margin-top: -500px;
+}
+
+.matrix-title {
+    font-size: 6rem;
+    font-weight: bold;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+    margin: 0; /* Remove margins */
+    padding: 0;
+    margin-top: 270px;
+}
+
+#sub {
+    font-size: 3rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder;
+    color: rgb(81, 255, 0);
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    margin-top: -1rem; /* Add negative margin to move up */
+}
+
+/* Updated profile image styles */
+.profile-image {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 160px;
+    height: 160px;
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: top right;
+    z-index: 1000;
+}
+
+.profile-image.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.profile-image.hide {
+    opacity: 0;
+    transform: scale(0.5) translate(50%, -50%);
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.corner-capsule {
+    display: none;
+}
+
+.corner-profile {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 150px;  /* Increased from 60px */
+    height: 150px; /* Increased from 60px */
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.13);
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+    z-index: 1000;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease;
+    transform-origin: top right;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.corner-profile:hover {
+    transform: scale(1.1); /* Add hover effect */
+}
+
+.corner-profile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.corner-profile.hidden {
+    transform: scale(0);
+    opacity: 0;
+}
+
+.projects-title {
+    font-size: 4.5rem;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    margin-bottom: 20px; /* Reduced from 30px */
+    font-family: 'Honk', system-ui;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s ease forwards;
+    position: relative ;
+    top: -10px;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.about-section {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center;
+    margin-top: -200px; 
+    margin-bottom: 50px;
+    animation: fadeIn 1s ease-out;
+    position: relative;
+}
+
+.about-section h2 {
+    font-family: 'Honk', system-ui;
+    font-size: 4rem;
+    color: white;
+    margin-bottom: 30px;
+}
+
+.about-section p {
+    font-size: 24px;
+    line-height: 1.8;
+    color: #cccccc;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+ 
+.experience-section {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center;
+    margin-top: 100px;
+    animation: fadeIn 1s ease-out;
+}
+
+.experience-section h2 {
+    font-family: 'Honk', system-ui;
+    font-size: 4.5rem;
+    color: white;
+    margin-bottom: 50px;
+}
+
+.experience-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.experience-item {
+    background: rgba(255, 255, 255, 0.13);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 30px;
+    text-align: left;
+}
+
+.experience-item h3 {
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.experience-item h4 {
+    font-size: 1.4rem;
+    color: #4a9eff;
+    margin-bottom: 10px;
+}
+
+.experience-item p {
+    font-size: 1.2rem;
+    color: #cccccc;
+}
+
+.experience-date {
+    color: #888;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    border-radius: 20%;
+}
+
+.skills-section {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    animation: fadeIn 1s ease-out;
+    position: relative;
+}
+
+.skills-section h2 {
+    font-family: 'Honk', system-ui;
+    font-size: 4.5rem;
+    color: white;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    padding: 20px;
+}
+
+.skill-category {
+    background: rgba(255, 255, 255, 0.13);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 30px;
+    text-align: left;
+    transition: transform 0.3s ease;
+}
+
+.skill-category:hover {
+    transform: translateY(-5px);
+}
+
+.skill-category h3 {
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skill-item {
+    background: rgba(74, 158, 255, 0.2);
+    padding: 8px 16px;
+    border-radius: 20px;
+    color: white;
+    font-size: 1.1rem;
+}
+
+
+.institution-name {
+    font-size: 1.2em;
+    color: #4a9eff;
+    margin: 10px 0;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background: linear-gradient(45deg, #cf1212, #e6ff02);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 5px 0;
+}
+
+
+.corner-profile {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    transition: all 0.5s ease-out;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #00000000, #00000000);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    transform-origin: top right;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.corner-profile::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #00000000, #00000000);
+    opacity: 0.5;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.2;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+}
+
+.corner-profile.hidden {
+    transform: translate(100px, -100px) scale(0);
+    opacity: 0;
+}
+
+.corner-profile img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    transition: all 0.5s ease-out;
+    background: #000;
+}
+
+.corner-profile.hidden img {
+    transform: scale(0);
+    opacity: 0;
+}
+
+
+.contact-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 20px;
+    min-height: 100vh;
+    position: relative;
+}
+
+.contact-section h2 {
+    font-size: 4.5rem;
+    margin-bottom: 40px;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: 'Honk', system-ui;
+}
+
+.contact-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.13);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px;
+}
+
+.contact-form {
+    width: 100%;
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 761px;
+    padding: 0px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    margin-bottom: 10px;
+}
+
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #4a9eff;
+    outline: none;
+    box-shadow: 0 0 10px rgba(74, 158, 255, 0.2);
+}
+
+.contact-form button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(45deg, #1e3c72, #2a5298);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.contact-form button:hover {
+    transform: translateY(-2px);
+}
+
+.projects-nav-arrows {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    right: 0;
+    display: none; /* Hide by default */
+    justify-content: space-between;
+    padding: 0 40px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    z-index: 1000;
+}
+
+.projects-nav-arrows.visible {
+    display: flex;
+}
+
+.nav-arrow {
+    position: relative; /* Changed from fixed to relative */
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.13);
+    backdrop-filter: blur(10px);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    pointer-events: auto;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.nav-arrow:hover {
+    transform: scale(1.1);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.nav-arrow.left,
+.nav-arrow.right {
+    position: relative;
+}
